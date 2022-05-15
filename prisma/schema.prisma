@@ -1,0 +1,27 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model usuarios {
+  nroloja                 Int     @default(0)
+  codigo                  Int     @default(0)
+  nome                    String  @default("") @db.Char(40)
+  codfunc                 Int     @default(0)
+  nomefunc                String  @default("") @db.Char(30)
+  nivel                   Int     @default(0)
+  senha                   Int     @default(0)
+  tema                    Boolean @default(true)
+  rfid                    String  @default("") @db.VarChar(64)
+  taxaServico             Decimal @default(0.00) @db.Decimal(5, 2)
+  adm12_usuario_filial_id Int?
+  pula_questionario       Boolean @default(false)
+  cpf                     String  @default("0") @db.Char(11)
+  celular_operador        BigInt
+
+  @@id([nroloja, codigo])
+}
