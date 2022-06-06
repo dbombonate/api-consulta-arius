@@ -1,0 +1,19 @@
+FROM node:14
+
+# Create app directory
+WORKDIR /apps/api-user-arius
+
+# Install app dependecies
+COPY package*.json /apps/api-user-arius/
+
+RUN npm ci --only=production
+RUN npm install prisma
+
+# Bundle app source
+COPY . /apps/api-user-arius/
+
+RUN npx prisma generate
+
+EXPOSE 3001
+
+CMD [ "npm", "start"]

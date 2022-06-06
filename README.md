@@ -24,6 +24,7 @@
 
 - [Sobre](#about)
 - [Para usar esse projeto](#getting_started)
+- [DockerFile](#container)
 - [Uso](#usage)
 - [Construído com...](#built_using)
 - [Autor](#authors)
@@ -81,6 +82,21 @@ $ npm test
 ```
 
 Este servidor trabalha apenas com rota do tipo GET, e retorna uma requisição status 200 caso o usuário informado exista ou 400 caso não exista.
+
+## DockerFile <a name = "container"></a>
+
+Caso prefira, utilize o DockerFile para criar um container para a aplicação. Adicione a seguinte variável de ambiente:
+
+DATABASE_URL="mysql://user:senha@host:porta/schema"
+
+Substitua os dados:
+
+ * mysql: banco de dados em uso
+ * user: usuário de acesso ao banco de dados
+ * senha: senha de acesso ao banco de dados
+ * host: Nome ou endereço IP do PC com banco de dados
+ * porta: porta para acesso ao banco de dados
+ * schema: nome do banco de dados em que vai se conectar
 
 ## Uso <a name = "usage"></a>
 
