@@ -85,7 +85,20 @@ Este servidor trabalha apenas com rota do tipo GET, e retorna uma requisição s
 
 ## DockerFile <a name = "container"></a>
 
-Caso prefira, utilize o DockerFile para criar um container para a aplicação. Adicione a seguinte variável de ambiente:
+Caso prefira, utilize o DockerFile para criar um container para a aplicação.
+
+Para executar o projeto em container, faça o download da imagem conforme comando abaixo:
+
+```
+$ docker container pull danielbombonate\apiconsultaarius:latest
+```
+
+Para executar o container:
+
+```
+$ docker container run -d -p 3001:3001 --name apiconsultauserpdv danielbombonate/apiconsultauserpdv:latest
+```
+Adicione a seguinte variável de ambiente para efetivar a conexão com banco de dados:
 
 DATABASE_URL="mysql://user:senha@host:porta/schema"
 
@@ -97,6 +110,10 @@ Substitua os dados:
  * host: Nome ou endereço IP do PC com banco de dados
  * porta: porta para acesso ao banco de dados
  * schema: nome do banco de dados em que vai se conectar
+
+```
+$ docker container run -d -p 3001:3001 -e DATABASE_URL="mysql://user:senha@host:porta/schema" --name apiconsultauserpdv danielbombonate/apiconsultauserpdv:latest
+```
 
 ## Uso <a name = "usage"></a>
 
